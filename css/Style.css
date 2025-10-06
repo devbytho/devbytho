@@ -1,0 +1,140 @@
+/* --- Global Style --- */
+
+/* Make all text white by default */
+* {
+  color: white;
+  box-sizing: border-box;
+}
+
+/* === Base header styling stays the same === */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  color: white;
+}
+
+.website-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.left-group h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.left-group p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* === Responsive Design (modified to hide text) === */
+@media (max-width: 700px) {
+  /* Keep header horizontal */
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 25px;
+  }
+
+  /* Keep logo visible but hide text to avoid crowding */
+  .left-group .text {
+    display: none;
+  }
+
+  /* Slightly tighten nav spacing */
+  nav {
+    gap: 15px;
+  }
+}
+
+
+footer {
+    background-color: rgb(11, 11, 11);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Keep default color for links */
+a {
+  color: #1e90ff; /* A nice blue (like default link color) */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #63b3ff; /* Lighter blue when hovered */
+  text-decoration: underline;
+}
+
+/* Body background and font */
+body {
+  background-color: rgb(16, 16, 16);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings look better with spacing */
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraphs and text spacing */
+p {
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* Buttons keep their natural color scheme */
+button, input[type="submit"], input[type="button"] {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+  background-color: #63b3ff;
+}
+
+/* Optional: images fit better on dark background */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
