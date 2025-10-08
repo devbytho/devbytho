@@ -232,7 +232,7 @@ img {
   pointer-events: none;
   color: #cfcfcf;
   z-index: 9999;
-  transition: opacity 0.25s linear;
+  transition: opacity 0.25s linear, transform 0.25s ease;
   opacity: 1;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
@@ -273,7 +273,33 @@ img {
   animation: arrow-bounce 1.4s infinite ease-in-out;
 }
 
+/* arrow bounce animation */
 @keyframes arrow-bounce {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(18px); }
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 900px) {
+  .scroll-indicator {
+    left: 20px;           /* closer to the edge */
+    bottom: 40px;         /* move up a bit */
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 600px) {
+  .scroll-indicator {
+    left: 12px;
+    bottom: 30px;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 400px) {
+  .scroll-indicator {
+    left: 8px;
+    bottom: 25px;
+    transform: scale(0.7);
+  }
 }
