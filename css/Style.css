@@ -221,7 +221,7 @@ img {
 }
 
 .scroll-indicator {
-  position: absolute;     /* moves with the page */
+  position: absolute;     /* moves with page scroll */
   left: 35px;
   bottom: 60px;
   display: flex;
@@ -235,25 +235,22 @@ img {
   pointer-events: none;
 }
 
-/* Rotate the word so it reads bottom-to-top */
 .scroll-indicator .scroll-text {
   display: inline-block;
-  transform: rotate(-90deg);  /* rotate the word vertically */
-  transform-origin: center;
-  letter-spacing: 2px;
+  transform: rotate(180deg) rotateY(180deg); /* makes text read bottom-to-top */
+  writing-mode: vertical-rl; /* make the text vertical */
   text-transform: lowercase;
+  letter-spacing: 2px;
 }
 
 .scroll-indicator .arrow {
   font-size: 18px;
   animation: bounce 1.4s infinite ease-in-out;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(4px); }
 }
-
-
 
