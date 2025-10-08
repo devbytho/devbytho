@@ -215,13 +215,6 @@ img {
 }
 
 
-.hero-section {
-  position: relative;
-}
-
-
-
-
 /* Default scroll indicator (desktop) */
 .scroll-indicator {
   position: absolute;
@@ -236,10 +229,7 @@ img {
   z-index: 9999;
 }
 
-
-/* Remove media query adjustments since it’s the same on all screens */
-
-
+/* Rotated text wrapper */
 .rot-wrapper {
   display: flex;
   align-items: center;
@@ -249,6 +239,7 @@ img {
   overflow: visible;
 }
 
+/* Rotated text */
 .rotated-text {
   display: inline-block;
   transform: rotate(-90deg);
@@ -279,12 +270,40 @@ img {
   50% { transform: translateY(18px); }
 }
 
-
-/* On smaller screens, place scroll indicator above the image */
-/* On smaller screens, place it above the image */
+/* --- Responsive tweaks for smaller screens --- */
 @media (max-width: 850px) {
   .scroll-indicator {
-    bottom: calc(100% - 20px); /* place above image but stay inside hero-section */
+    bottom: calc(100% - 20px); /* stays above the image */
     left: 10px;
+  }
+  .rotated-text {
+    font-size: 16px; /* smaller text */
+  }
+  .arrow-svg {
+    width: 20px;
+    height: 40px; /* smaller arrow */
+    margin-top: 15px;
+  }
+}
+
+/* Further responsive tweaks for very narrow/tall screens */
+@media (max-width: 500px) {
+  .scroll-indicator {
+    left: 8px;
+    bottom: calc(100% - 15px);
+  }
+  .rotated-text {
+    font-size: 14px;
+  }
+  .arrow-svg {
+    width: 16px;
+    height: 32px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-height: 700px) {
+  .scroll-indicator {
+    bottom: calc(100% - 10px);
   }
 }
