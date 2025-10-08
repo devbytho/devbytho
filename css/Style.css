@@ -214,11 +214,12 @@ img {
   }
 }
 
-/* --- Scroll Indicator --- */
+
+/* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  left: 40px;
-  top: 50%;
+  left: 10px;      /* more to the left */
+  top: 55%;        /* slightly lower */
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -230,6 +231,7 @@ img {
   opacity: 1;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
 
 .rot-wrapper {
   display: flex;
@@ -270,11 +272,10 @@ img {
   50% { transform: translateY(18px); }
 }
 
-/* Adjust for small screens */
 @media (max-width: 700px) {
   .scroll-indicator {
-    top: 60%;
-    left: 25px;
+    top: 65%;       /* slightly lower on mobile */
+    left: 5px;      /* move further left on mobile */
     transform: translateY(-50%);
   }
 }
