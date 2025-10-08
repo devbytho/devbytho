@@ -242,8 +242,6 @@ img {
 /* Adjust for small screens */
 @media (max-width: 500px) {
   .scroll-indicator {
-    top: 10%;
-    left: 25px;
-    transform: translateY(-50%);
+    display: none;
   }
 } 
