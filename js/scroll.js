@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const text = document.createElement("span");
   text.classList.add("scroll-text");
-  text.textContent = "scroll";
+  text.textContent = "Scroll";
 
   const arrow = document.createElement("span");
   arrow.classList.add("arrow");
