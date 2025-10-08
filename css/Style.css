@@ -270,7 +270,7 @@ img {
   stroke-linecap: round;
   stroke-linejoin: round;
   opacity: 0.9;
-  
+  animation: arrow-bounce 1.4s infinite ease-in-out;
 }
 
 @keyframes arrow-bounce {
