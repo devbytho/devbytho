@@ -242,7 +242,7 @@ img {
 /* Adjust for small screens */
 @media (max-width: 500px) {
   .scroll-indicator {
-    top: 60%;
+    top: 90%;
     left: 25px;
     transform: translateY(-50%);
   }
