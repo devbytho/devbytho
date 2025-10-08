@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const svg = document.createElementNS(svgNS, "svg");
   svg.setAttribute("viewBox", "0 0 24 48");
   svg.classList.add("arrow-svg");
-  svg.setAttribute("aria-hidden", "true");
 
   const line = document.createElementNS(svgNS, "line");
   line.setAttribute("x1", "12");
@@ -36,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.body.appendChild(scrollDiv);
 
-  // Fade effect while scrolling
+  // Fade effect
   window.addEventListener("scroll", () => {
     const fadeStart = 0;
     const fadeEnd = 300;
