@@ -220,40 +220,61 @@ img {
   }
 }
 
+/* --- Scroll Indicator Styles --- */
+
 .scroll-indicator {
-  position: absolute;      /* moves with the page */
-  left: 40px;              /* adjust for horizontal position */
-  bottom: 60px;            /* distance from bottom of the page */
+  position: absolute;      /* moves with page */
+  left: 40px;
+  bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
-  font-size: 1rem;
-  z-index: 9999;
-  transition: opacity 0.3s ease;
-  opacity: 1;
   pointer-events: none;
+  color: #cfcfcf;
+  z-index: 9999;
+  transition: opacity 0.25s linear;
+  opacity: 1;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Rotate the text sideways (bottom → top) */
-.scroll-indicator .scroll-text {
+/* wrapper keeps rotated text layout stable */
+.rot-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 24px;
+  overflow: visible;
+}
+
+/* sideways text (rotated like your screenshot) */
+.rotated-text {
   display: inline-block;
-  transform: rotate(-90deg); /* rotate counterclockwise */
-  transform-origin: center;
-  text-transform: capitalize;
-  letter-spacing: 1px;
-  opacity: 0.8;
-}
-
-/* Arrow styling */
-.scroll-indicator .arrow {
+  transform: rotate(-90deg);
+  transform-origin: center center;
+  white-space: nowrap;
   font-size: 20px;
-  margin-top: 10px;
-  animation: bounce 1.4s infinite ease-in-out;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  opacity: 0.9;
 }
 
-/* Simple bounce animation for the arrow */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+/* arrow styling */
+.arrow-svg {
+  width: 28px;
+  height: 56px;
+  margin-top: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+  animation: arrow-bounce 1.4s infinite ease-in-out;
+}
+
+/* gentle arrow bounce */
+@keyframes arrow-bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
