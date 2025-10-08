@@ -216,7 +216,7 @@ img {
 
 .scroll-indicator {
   position: absolute;
-  left: 40px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -238,3 +238,12 @@ img {
   height: 24px;
   overflow: visible;
 }
+
+/* Adjust for small screens */
+@media (max-width: 700px) {
+  .scroll-indicator {
+    top: 60%;
+    left: 25px;
+    transform: translateY(-50%);
+  }
+} 
