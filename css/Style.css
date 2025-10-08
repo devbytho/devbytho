@@ -215,6 +215,12 @@ img {
 }
 
 
+.hero-section {
+  position: relative;
+}
+
+
+
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
@@ -274,9 +280,17 @@ img {
   50% { transform: translateY(18px); }
 }
 
+
+/* On smaller screens, position relative to image-area above the image */
 @media (max-width: 850px) {
+  .hero-section .image-area {
+    position: relative; /* make image-area the reference */
+  }
+
   .scroll-indicator {
-    bottom: 10px;   /* closer to the image */
-    left: 8px;      /* optional: slightly closer to left edge */
+    position: absolute;
+    left: 8px;         /* distance from left of image-area */
+    bottom: 100%;      /* place above the image */
+    margin-bottom: 10px; /* small spacing above the image */
   }
 }
