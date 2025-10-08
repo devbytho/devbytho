@@ -10,7 +10,7 @@
 
 /* --- Body & Layout --- */
 html, body {
-  height: 100%;          /* full viewport height */
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -18,12 +18,11 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;     /* ensures footer stays at bottom if page is short */
+  min-height: 100vh;
   background-color: rgb(16,16,16);
   font-family: 'Arial', sans-serif;
 }
 
-/* Main content fills remaining space */
 main {
   flex: 1;
 }
@@ -60,7 +59,6 @@ header {
   opacity: 0.8;
 }
 
-/* Only header links white */
 header nav a {
   color: white;
   text-decoration: none;
@@ -90,7 +88,7 @@ nav {
   gap: 25px;
 }
 
-/* === Responsive Design (hide text on small screens) === */
+/* === Responsive Header === */
 @media (max-width: 700px) {
   header {
     flex-direction: row;
@@ -117,17 +115,16 @@ footer {
   padding: 20px;
   color: white;
   width: 100%;
-  margin-top: auto;       /* pushes footer to bottom if page is short */
+  margin-top: auto;
 }
 
-/* --- Headings --- */
+/* --- Headings & Text --- */
 h1, h2, h3, h4, h5, h6 {
   color: white;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
 
-/* --- Paragraphs --- */
 p {
   line-height: 1.6;
   margin-bottom: 1em;
@@ -158,7 +155,7 @@ img {
   border-radius: 8px;
 }
 
-/* === Universal Hero Section (top part for all pages) === */
+/* === Hero Section === */
 .hero-section {
   display: flex;
   align-items: center;
@@ -169,7 +166,6 @@ img {
   background-color: rgb(16,16,16);
 }
 
-/* Left text area */
 .hero-section .text-area {
   flex: 1;
 }
@@ -190,7 +186,6 @@ img {
   display: block;
 }
 
-/* Right image area */
 .hero-section .image-area {
   flex: 1;
   display: flex;
@@ -203,7 +198,6 @@ img {
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
 }
 
-/* --- Responsive adjustments --- */
 @media (max-width: 850px) {
   .hero-section {
     flex-direction: column;
@@ -220,24 +214,23 @@ img {
   }
 }
 
-/* --- Scroll Indicator Styles --- */
-
+/* --- Scroll Indicator --- */
 .scroll-indicator {
   position: absolute;
   left: 40px;
-  bottom: 60px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   pointer-events: none;
   color: #cfcfcf;
   z-index: 9999;
-  transition: opacity 0.25s linear, transform 0.25s ease;
+  transition: opacity 0.25s linear;
   opacity: 1;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* wrapper for rotated text */
 .rot-wrapper {
   display: flex;
   align-items: center;
@@ -247,7 +240,6 @@ img {
   overflow: visible;
 }
 
-/* rotated text (sideways) */
 .rotated-text {
   display: inline-block;
   transform: rotate(-90deg);
@@ -259,7 +251,7 @@ img {
   opacity: 0.9;
 }
 
-/* arrow SVG styling */
+/* Arrow */
 .arrow-svg {
   width: 28px;
   height: 56px;
@@ -273,33 +265,16 @@ img {
   animation: arrow-bounce 1.4s infinite ease-in-out;
 }
 
-/* arrow bounce animation */
 @keyframes arrow-bounce {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(18px); }
 }
 
-/* --- Responsive adjustments --- */
-@media (max-width: 900px) {
+/* Adjust for small screens */
+@media (max-width: 700px) {
   .scroll-indicator {
-    left: 20px;           /* closer to the edge */
-    bottom: 40px;         /* move up a bit */
-    transform: scale(0.9);
-  }
-}
-
-@media (max-width: 600px) {
-  .scroll-indicator {
-    left: 12px;
-    bottom: 30px;
-    transform: scale(0.8);
-  }
-}
-
-@media (max-width: 400px) {
-  .scroll-indicator {
-    left: 8px;
-    bottom: 25px;
-    transform: scale(0.7);
+    top: 60%;
+    left: 25px;
+    transform: translateY(-50%);
   }
 }
