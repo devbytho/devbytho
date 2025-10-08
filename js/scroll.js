@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+document.addEventListener("DOMContentLoaded", () => {
+  const heroSection = document.querySelector(".hero-section"); // place inside hero
+
+  // Create scroll indicator container
+=======
 =document.addEventListener("DOMContentLoaded", () => {
   const heroSection = document.querySelector(".hero-section"); // place inside hero
 
   // Create scroll indicator container
+>>>>>>> fd78b592c60995558d8c2584a6cfe6f652047adb
   const scrollDiv = document.createElement("div");
   scrollDiv.className = "scroll-indicator";
 
