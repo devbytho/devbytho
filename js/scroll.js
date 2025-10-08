@@ -2,20 +2,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollDiv = document.createElement("div");
   scrollDiv.className = "scroll-indicator";
 
-  // Add letters in reverse so they stack bottom-to-top visually
-  "scroll".split("").reverse().forEach(letter => {
-    const span = document.createElement("span");
-    span.textContent = letter;
-    scrollDiv.appendChild(span);
-  });
+  const text = document.createElement("span");
+  text.classList.add("scroll-text");
+  text.textContent = "scroll";
 
-  // Add arrow at the bottom
   const arrow = document.createElement("span");
   arrow.classList.add("arrow");
   arrow.textContent = "↓";
-  scrollDiv.appendChild(arrow);
 
-  // Add to body
+  scrollDiv.appendChild(text);
+  scrollDiv.appendChild(arrow);
   document.body.appendChild(scrollDiv);
 
   // Fade effect on scroll
