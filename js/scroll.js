@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollDiv.appendChild(arrow);
   document.body.appendChild(scrollDiv);
 
-  // Fade effect on scroll
+  // Fade effect when scrolling
   window.addEventListener("scroll", () => {
     const fadeStart = 0;
     const fadeEnd = 300;
@@ -26,4 +26,3 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollDiv.style.opacity = opacity;
   });
 });
-
