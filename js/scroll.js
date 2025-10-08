@@ -26,3 +26,4 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollDiv.style.opacity = opacity;
   });
 });
+
