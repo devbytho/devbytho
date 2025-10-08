@@ -282,14 +282,9 @@ img {
 
 
 /* On smaller screens, place scroll indicator above the image */
+/* On smaller screens, place it above the image */
 @media (max-width: 850px) {
-  .hero-section .image-area {
-    position: relative; /* reference for the indicator */
-  }
-
   .scroll-indicator {
-    position: absolute;
-    left: 8px;          /* distance from left edge of image */
-    top: -40px;         /* place above the image */
+    bottom: calc(100% - 20px); /* place above image but stay inside hero-section */
+    left: 10px;
   }
-}
