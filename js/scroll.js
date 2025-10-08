@@ -1,48 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const heroSection = document.querySelector(".hero-section"); // place inside hero
+  const heroSection = document.querySelector(".hero-section");
 
   // Create scroll indicator container
   const scrollDiv = document.createElement("div");
   scrollDiv.className = "scroll-indicator";
 
-  // Style container (absolute inside hero-section)
-  Object.assign(scrollDiv.style, {
-    position: "absolute",
-    bottom: "20px",
-    left: "10px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    pointerEvents: "none",
-    color: "#cfcfcf",
-    zIndex: "9999",
-  });
-
   // Rotated text
   const rotWrap = document.createElement("div");
-  Object.assign(rotWrap.style, {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "80px",
-    height: "24px",
-    overflow: "visible",
-  });
+  rotWrap.style.display = "flex";
+  rotWrap.style.alignItems = "center";
+  rotWrap.style.justifyContent = "center";
+  rotWrap.style.width = "80px";
+  rotWrap.style.height = "24px";
 
   const text = document.createElement("span");
   text.textContent = "Scroll";
-  Object.assign(text.style, {
-    display: "inline-block",
-    transform: "rotate(-90deg)",
-    transformOrigin: "center center",
-    whiteSpace: "nowrap",
-    fontSize: "20px",
-    letterSpacing: "1px",
-    textTransform: "capitalize",
-    opacity: "0.9",
-    textAlign: "center",
-  });
+  text.style.display = "inline-block";
+  text.style.transform = "rotate(-90deg)";
+  text.style.transformOrigin = "center center";
+  text.style.whiteSpace = "nowrap";
+  text.style.fontSize = "20px";
+  text.style.letterSpacing = "1px";
+  text.style.textTransform = "capitalize";
+  text.style.opacity = "0.9";
+  text.style.textAlign = "center";
 
   rotWrap.appendChild(text);
   scrollDiv.appendChild(rotWrap);
@@ -51,18 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS, "svg");
   svg.setAttribute("viewBox", "0 0 24 48");
-  Object.assign(svg.style, {
-    width: "28px",
-    height: "56px",
-    marginTop: "20px",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    opacity: "0.9",
-    animation: "arrowBounce 1.4s infinite ease-in-out",
-  });
+  svg.style.width = "28px";
+  svg.style.height = "56px";
+  svg.style.marginTop = "20px";
+  svg.style.fill = "none";
+  svg.style.stroke = "currentColor";
+  svg.style.strokeWidth = "2";
+  svg.style.strokeLinecap = "round";
+  svg.style.strokeLinejoin = "round";
+  svg.style.opacity = "0.9";
+  svg.style.animation = "arrowBounce 1.4s infinite ease-in-out";
 
   const line = document.createElementNS(svgNS, "line");
   line.setAttribute("x1", "12");
@@ -79,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   heroSection.appendChild(scrollDiv);
 
-  // Arrow bounce keyframes (CSS in JS)
+  // Arrow bounce keyframes
   const styleSheet = document.createElement("style");
   styleSheet.textContent = `
     @keyframes arrowBounce {
@@ -88,4 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   `;
   document.head.appendChild(styleSheet);
+
+  // Fade on scroll
+  window.addEventListener("scroll", () => {
+    const fadeStart = 0;
+    const fadeEnd = 300;
+    const scrollY = window.scrollY || window.pageYOffset;
+    let opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
+    opacity = Math.max(0, Math.min(1, opacity));
+    scrollDiv.style.opacity = opacity;
+  });
 });
