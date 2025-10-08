@@ -223,7 +223,7 @@ img {
 /* --- Scroll Indicator Styles --- */
 
 .scroll-indicator {
-  position: absolute;      /* moves with page */
+  position: absolute;
   left: 40px;
   bottom: 60px;
   display: flex;
@@ -237,7 +237,7 @@ img {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* wrapper keeps rotated text layout stable */
+/* wrapper for rotated text */
 .rot-wrapper {
   display: flex;
   align-items: center;
@@ -247,7 +247,7 @@ img {
   overflow: visible;
 }
 
-/* sideways text (rotated like your screenshot) */
+/* rotated text (sideways) */
 .rotated-text {
   display: inline-block;
   transform: rotate(-90deg);
@@ -259,7 +259,7 @@ img {
   opacity: 0.9;
 }
 
-/* arrow styling */
+/* arrow SVG styling */
 .arrow-svg {
   width: 28px;
   height: 56px;
@@ -273,7 +273,6 @@ img {
   animation: arrow-bounce 1.4s infinite ease-in-out;
 }
 
-/* gentle arrow bounce */
 @keyframes arrow-bounce {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
