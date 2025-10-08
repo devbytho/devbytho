@@ -217,19 +217,18 @@ img {
 
 /* Default scroll indicator (desktop) */
 .scroll-indicator {
-  position: absolute;
-  left: 10px;
-  bottom: 20px; /* relative to bottom of hero-section */
-  transform: none;
+  position: fixed;        /* always stays in viewport */
+  left: 10px;             /* distance from left edge */
+  bottom: 20px;           /* distance from bottom edge */
   display: flex;
   flex-direction: column;
   align-items: center;
   pointer-events: none;
   color: #cfcfcf;
   z-index: 9999;
+  transition: opacity 0.25s linear, transform 0.25s linear;
 }
 
-/* Rotated text wrapper */
 .rot-wrapper {
   display: flex;
   align-items: center;
@@ -239,7 +238,6 @@ img {
   overflow: visible;
 }
 
-/* Rotated text */
 .rotated-text {
   display: inline-block;
   transform: rotate(-90deg);
@@ -251,7 +249,6 @@ img {
   opacity: 0.9;
 }
 
-/* Arrow */
 .arrow-svg {
   width: 28px;
   height: 56px;
@@ -266,32 +263,23 @@ img {
 }
 
 @keyframes arrow-bounce {
-  0%,100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(18px); }
 }
 
-/* --- Responsive tweaks for smaller screens --- */
-@media (max-width: 850px) {
-  .scroll-indicator {
-    bottom: calc(100% - 20px); /* stays above the image */
-    left: 10px;
-  }
+/* --- Responsive scaling for smaller screens --- */
+@media (max-width: 850px), (max-height: 700px) {
   .rotated-text {
-    font-size: 16px; /* smaller text */
+    font-size: 16px;
   }
   .arrow-svg {
     width: 20px;
-    height: 40px; /* smaller arrow */
+    height: 40px;
     margin-top: 15px;
   }
 }
 
-/* Further responsive tweaks for very narrow/tall screens */
-@media (max-width: 500px) {
-  .scroll-indicator {
-    left: 8px;
-    bottom: calc(100% - 15px);
-  }
+@media (max-width: 500px), (max-height: 500px) {
   .rotated-text {
     font-size: 14px;
   }
@@ -299,11 +287,5 @@ img {
     width: 16px;
     height: 32px;
     margin-top: 12px;
-  }
-}
-
-@media (max-height: 700px) {
-  .scroll-indicator {
-    bottom: calc(100% - 10px);
   }
 }
