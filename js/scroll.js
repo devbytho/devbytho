@@ -2,14 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollDiv = document.createElement("div");
   scrollDiv.className = "scroll-indicator";
 
-  // Add letters in reverse so they stack bottom-to-top visually
-  "scroll".split("").reverse().forEach(letter => {
-    const span = document.createElement("span");
-    span.textContent = letter;
-    scrollDiv.appendChild(span);
-  });
+  // Add the word "scroll"
+  const text = document.createElement("span");
+  text.classList.add("scroll-text");
+  text.textContent = "scroll";
+  scrollDiv.appendChild(text);
 
-  // Add arrow at the bottom
+  // Add arrow below
   const arrow = document.createElement("span");
   arrow.classList.add("arrow");
   arrow.textContent = "↓";
