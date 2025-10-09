@@ -221,7 +221,7 @@ img {
 }
 
 .scroll-indicator {
-  position: absolute;      /* moves with page scroll */
+  position: absolute;
   left: 35px;
   bottom: 60px;
   display: flex;
@@ -236,15 +236,19 @@ img {
   pointer-events: none;
 }
 
-.scroll-indicator span {
-  display: block;
-  line-height: 1em;
+/* Rotate text and center it visually with the arrow */
+.scroll-text {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transform-origin: center center; /* pivot around center */
+  text-transform: lowercase;
+  margin-bottom: 15px; /* space between text and arrow */
+  text-align: center;
 }
 
 .scroll-indicator .arrow {
   font-size: 18px;
   animation: bounce 1.4s infinite ease-in-out;
-  margin-top: 4px; /* space between letters and arrow */
 }
 
 @keyframes bounce {
@@ -252,4 +256,10 @@ img {
   50% { transform: translateY(8px); }
 }
 
+/* Hide scroll indicator on small screens */
+@media (max-width: 550px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
 
