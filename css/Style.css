@@ -1,0 +1,265 @@
+/* --- Global Style --- */
+
+/* Make all text white by default */
+* {
+  color: white;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Body & Layout --- */
+html, body {
+  height: 100%;          /* full viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;     /* ensures footer stays at bottom if page is short */
+  background-color: rgb(16,16,16);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Main content fills remaining space */
+main {
+  flex: 1;
+}
+
+/* --- Header --- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.website-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.left-group h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.left-group p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Only header links white */
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+header nav a:hover {
+  opacity: 0.5;
+}
+
+/* All other links default blue */
+a:not(header nav a) {
+  color: #1e90ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:not(header nav a):hover {
+  color: #63b3ff;
+  text-decoration: underline;
+}
+
+/* Header navigation */
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+/* === Responsive Design (hide text on small screens) === */
+@media (max-width: 700px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 25px;
+  }
+
+  .left-group .text {
+    display: none;
+  }
+
+  nav {
+    gap: 15px;
+  }
+}
+
+/* --- Footer --- */
+footer {
+  background-color: rgb(11, 11, 11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  width: 100%;
+  margin-top: auto;       /* pushes footer to bottom if page is short */
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+/* --- Paragraphs --- */
+p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* --- Buttons --- */
+button,
+input[type="submit"],
+input[type="button"] {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #63b3ff;
+}
+
+/* --- Images --- */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* === Universal Hero Section (top part for all pages) === */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 10%;
+  position: relative;
+  background-color: rgb(16,16,16);
+}
+
+/* Left text area */
+.hero-section .text-area {
+  flex: 1;
+}
+
+.hero-section .text-area p {
+  opacity: 0.7;
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+.hero-section .text-area h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero-section .text-area h1 span {
+  display: block;
+}
+
+/* Right image area */
+.hero-section .image-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-section .image-area img {
+  width: 360px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 850px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-section .image-area {
+    margin-top: 40px;
+  }
+
+  .hero-section .text-area h1 {
+    font-size: 3rem;
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  left: 35px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Rotate text and center it visually with the arrow */
+.scroll-text {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transform-origin: center center; /* pivot around center */
+  text-transform: lowercase;
+  margin-bottom: 15px; /* space between text and arrow */
+  text-align: center;
+}
+
+.scroll-indicator .arrow {
+  font-size: 18px;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Hide scroll indicator on small screens */
+@media (max-width: 550px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
